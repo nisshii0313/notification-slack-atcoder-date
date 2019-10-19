@@ -1,11 +1,11 @@
-name: Regular Execution
+name: Notification on Schedule
 
 on:
   schedule:
-  - cron: "0,10,20,30,40,50 * * * *"
+  - cron: "0,30 * * * *"
 
 jobs:
-  build:
+  notificate:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,12 +16,12 @@ jobs:
       with:
         ruby-version: 2.6.3
 
-    - name: Build and test with Rake
+    - name: Bundle Install
       run: |
         gem install bundler
-        bundle install --path vendor/bundle
-        bundle exec ruby notificate-atcoder-date.rb
-        # bundle install --jobs 4 --retry 3
-        # bundle exec rake
+        bundle install --jobs 4 --retry 3
+
+    - name: Execute
+      run: bundle exec ruby notificate-atcoder-date.rb
       env:
         SLACK_URL: ${{ secrets.SLACK_URL }}
