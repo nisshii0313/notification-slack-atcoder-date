@@ -3,8 +3,8 @@ require './scrape_atcoder_contest_day'
 require 'time'
 
 def create_message_body(header, contest, after_hour)
-    message = "******* [BOT INFORMATION (Test Stage))] *******\n"
-    message += "The Contest will start #{after_hour} houe later !!\n\n"
+    message = "******* [BOT INFORMATION (Beta))] *******\n"
+    message += "The Contest will start #{after_hour} hour later !!\n\n"
     (header.length).times do |i|
         message += "#{header[i]}: #{contest[i]}\n"
     end
@@ -22,9 +22,7 @@ notification_seconds_ago = [1 * 60 * 60, 24 * 60 * 60]
 contests.each do |contest|
     contest[0] = Time.parse(contest[0])
     held_time = contest[0]
-    # notification_seconds_ago.each do |seconds_ago|
-    200.times do |i|
-        seconds_ago = i * 60 * 60
+    notification_seconds_ago.each do |seconds_ago|
         if now_time + seconds_ago == held_time
             body = create_message_body(contest_header, contest, seconds_ago / 3600)
             response = https_request(ENV['SLACK_URL'], body)
