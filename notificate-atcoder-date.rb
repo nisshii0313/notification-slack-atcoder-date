@@ -3,7 +3,7 @@ require './scrape_atcoder_contest_day'
 require 'time'
 
 def create_message_body(header, contest, after_hour)
-    message = "******* [BOT INFORMATION] *******\n"
+    message = "******* [BOT INFORMATION (Test Stage))] *******\n"
     message += "The Contest will start #{after_hour} houe later !!\n\n"
     (header.length).times do |i|
         message += "#{header[i]}: #{contest[i]}\n"
@@ -12,11 +12,8 @@ def create_message_body(header, contest, after_hour)
 end
 
 # scraping future contests from atcoder contests page
-begin
-    contests = scrape_atcoder_contest_day
-    contest_header = contests.shift
-rescue
-end
+contests = scrape_atcoder_contest_day
+contest_header = contests.shift
 
 # notification contests will be held today or tomorrow to slack
 now_time = Time.now
@@ -26,7 +23,7 @@ contests.each do |contest|
     contest[0] = Time.parse(contest[0])
     held_time = contest[0]
     # notification_seconds_ago.each do |seconds_ago|
-    100.times do |i|
+    200.times do |i|
         seconds_ago = i * 60 * 60
         if now_time + seconds_ago == held_time
             body = create_message_body(contest_header, contest, seconds_ago / 3600)
