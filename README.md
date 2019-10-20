@@ -1,6 +1,8 @@
-# Notificate AtCoder Date to Slack
+# Notificate AtCoder Date to Slack (Beta Version)
 This notifier tells your workspace contest date of [AtCoder](https://atcoder.jp/).
 In first setting, it send notification 1 and 24 hours before the contest.
+
+This is not yet completed and in testing !!
 
 # Usage
 ## Add Webhook App
@@ -54,6 +56,12 @@ This gem is used every hours, so I want to use in one install.
 It is inefficient.
 
 I am waiting your feedbacks !!
+
+# License
+
+The MIT License 2019 EisKern
+
+The full license is [here](/LICENSE).
 
 # Author
 [EisKern](https://eiskern.com/)
