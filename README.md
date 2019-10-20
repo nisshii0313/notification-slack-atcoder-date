@@ -51,7 +51,7 @@ Scheduling is set to execute every hour at 0 minutes.
 # Features
 It is much time to install gem "nokogiri".
 This gem is used every hours, so I want to use in one install.
-it is unefficiency.
+It is inefficient.
 
 I am waiting your feedbacks !!
 
