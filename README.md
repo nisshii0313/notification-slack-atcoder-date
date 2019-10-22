@@ -20,7 +20,7 @@ In next page, note "Webhook URL". This is used later.
 ## Fork This Repository
 Fork this repo.  
 Next, add a new secret in settings tab.
-"Setting" -> "secrets" -> "Add a new secret"
+"Settings" -> "secrets" -> "Add a new secret"
 
 Name: SLACK_URL  
 Value: ("Webhook URL" you noted.)
