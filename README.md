@@ -55,7 +55,7 @@ It is much time to install gem "nokogiri".
 This gem is used every hours, so I want to use in one install.
 It is inefficient.
 
-I am waiting your feedbacks !!
+I look forward to your feedbacks !!
 
 # License
 
