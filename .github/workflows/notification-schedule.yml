@@ -2,7 +2,7 @@ name: Notification on Schedule
 
 on:
   schedule:
-  - cron: "0 * * * *"
+  - cron: "* * * * *"
 
 jobs:
   notificate:
@@ -15,6 +15,13 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.3
+
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
 
     - name: Bundle Install
       run: |
