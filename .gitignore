@@ -19,7 +19,6 @@
 /vendor
 /vendor/bundle/
 /vendor/ruby/
-/Gemfile.lock
 
 # minimal Rails specific artifacts
 db/*.sqlite3
