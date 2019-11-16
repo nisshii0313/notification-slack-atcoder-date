@@ -2,7 +2,7 @@ name: Notification on Schedule
 
 on:
   schedule:
-  - cron: "0/5 * * * *"
+  - cron: "0 * * * *"
 
 jobs:
   notificate:
@@ -25,6 +25,7 @@ jobs:
           ${{ runner.os }}-gem-
 
     - name: Bundle Install
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
