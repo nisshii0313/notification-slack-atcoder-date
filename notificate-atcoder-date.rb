@@ -27,8 +27,5 @@ contests.each do |contest|
             body = create_message_body(contest_header, contest, hours_ago)
             response = https_request(ENV['SLACK_URL'], body)
         end
-        body = create_message_body(contest_header, contest, hours_ago)
-        response = https_request(ENV['SLACK_URL'], body)
-        exit
     end
 end
