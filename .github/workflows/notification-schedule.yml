@@ -18,7 +18,6 @@ jobs:
         ruby-version: 2.6.3
 
     - name: Cache Bundle
-      id: cache-primes
       uses: actions/cache@v1
       with:
         path: vendor/bundle
@@ -27,7 +26,7 @@ jobs:
           ${{ runner.os }}-gem-
 
     - name: Bundle Install
-      if: steps.cache-primes.outputs.cache-hit != 'true'
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3 --path vendor/bundle
