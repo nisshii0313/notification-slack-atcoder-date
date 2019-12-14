@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.3
+      run: gem install bundler
 
     - name: Cache Bundle
       id: cache-primes
@@ -33,6 +34,8 @@ jobs:
         bundle install --jobs 4 --retry 3 --path vendor/bundle
 
     - name: Execute
-      run: bundle exec ruby notificate-atcoder-date.rb
+      run: |
+        gem install bundler
+        bundle exec ruby notificate-atcoder-date.rb
       env:
         SLACK_URL: ${{ secrets.SLACK_URL }}
