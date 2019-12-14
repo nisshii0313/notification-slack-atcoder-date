@@ -27,6 +27,10 @@ Value: ("Webhook URL" you noted.)
 
 That's all you do.
 
+> I want to work just by foking.
+> But it doesn't work.
+> Currently adjudting.
+
 # How it works
 ## Scraping
 To get information of feature contests, Scraping is used by using ruby gem "Nokogiri".
