@@ -8,3 +8,7 @@ gem "nokogiri"
 group :production do
     gem "bundler"
 end
+
+group :development do
+    gem "rubocop", require: false
+end
