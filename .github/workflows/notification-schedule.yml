@@ -9,13 +9,17 @@ jobs:
   notificate:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        ruby: ['2.6.x']
+
     steps:
     - uses: actions/checkout@v1
 
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.3
+        ruby-version: ${{ matrix.ruby }}
 
     - name: Cache Bundle
       uses: actions/cache@v1
