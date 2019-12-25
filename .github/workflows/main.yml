@@ -1,0 +1,39 @@
+name: Notification on Atcoder
+
+on:
+  push:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  notificate:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby: ['2.6.x']
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+
+    - name: Cache Bundle
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: Bundle Install
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3 --path vendor/bundle --without development
+    - name: Execute
+      run: bundle exec ruby notificate-atcoder-date.rb
+      env:
+        SLACK_URL: ${{ secrets.SLACK_URL }}
