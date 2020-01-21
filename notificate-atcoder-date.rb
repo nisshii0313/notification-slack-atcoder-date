@@ -23,7 +23,7 @@ contests.each do |contest|
     contest[0] = Time.parse(contest[0])
     held_time = contest[0]
     notification_hours_ago.each do |hours_ago|
-        if now_time + (hours_ago * 60 * 60) == held_time
+        if now_time + (hours_ago * 60 * 60) >= held_time
             body = create_message_body(contest_header, contest, hours_ago)
             response = https_request(ENV['SLACK_URL'], body)
         end
