@@ -4,7 +4,7 @@ require 'time'
 
 def create_message_body(header, contest, after_hour)
     message = "******* [BOT INFORMATION (Beta))] *******\n"
-    message += "The Contest will start #{after_hour} hour later !!\n\n"
+    message += "The Contest will start about #{after_hour} hour later !!\n\n"
     (header.length).times do |i|
         message += "#{header[i]}: #{contest[i]}\n"
     end
