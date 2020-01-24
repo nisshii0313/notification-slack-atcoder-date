@@ -14,7 +14,7 @@ end
 def judge_notification(now_time_p, held_time_p, hours_ago_p)
     if now_time_p + (hours_ago_p * 60 * 60) == held_time_p then
         return true
-    elsif now_time_p + (hours_ago_p * 60 * 60) > held_time_p && now_time_p < held_time_p
+    elsif now_time_p + (hours_ago_p * 60 * 60) > held_time_p && now_time_p + ((hours_ago_p - 1) * 60 * 60) < held_time_p
         return true
     else
         return false
