@@ -1,4 +1,4 @@
-# Notificate AtCoder Date to Slack (Beta Version)
+# Notificate AtCoder Date to Slack (for PlayGround)![Notification on Schedule](https://github.com/nisshii0313/notification-slack-atcoder-date/workflows/Notification%20on%20Schedule/badge.svg)
 This notifier tells your workspace contest date of [AtCoder](https://atcoder.jp/).
 In first setting, it send notification 1 and 24 hours before the contest.
 
